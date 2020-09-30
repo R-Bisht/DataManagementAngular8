@@ -1,0 +1,112 @@
+<div class="forFieldset" style="text-align: center; vertical-align: central; background-color:silver; height: 35px">
+<h3 style="font-size: 25px;">Add Student</h3>
+</div>
+
+<table style ="width: 100%; margin-top: 30px; margin-left:15px;">
+<tr>
+    <td style="width: 65%;">
+    <table style="width:100%">
+    
+    <tr class="row">
+    
+        <td style="width: 25%;" class="col"><input type="text"  class="form-control" placeholder="First Name"></td>
+        <td style="width: 25%;" class="col"><input type="text" class="form-control" placeholder="Last Name"></td>
+    </tr>
+    <tr style="margin-top: 8px;" class="row">
+    
+        <td style="width: 25%;" class="col"><input type="text"  class="form-control" placeholder="Father Name"></td>
+        <td style="width: 25%;" class="col"><input type="text" class="form-control" placeholder="Mother Name"></td>
+    </tr>
+
+    <tr style="margin-top: 8px;" class="row">
+    
+        <td style="width: 25%;" class="col"><input type="text" maxlength="10"  class="form-control" placeholder="Phone No"></td>
+        <td style="width: 25%;" class="col"><input type="text" class="form-control" placeholder="Email Id"></td>
+    </tr>
+
+    <tr style="margin-top: 8px;" class="row">
+    
+        <td style="width: 25%;" class="col"><input type="text"  class="form-control" maxlength="12" placeholder="Aadhar No"></td>
+        <td style="width: 25%;" class="col"><input type="date" class="form-control" placeholder="D.O.B"></td>
+    </tr>
+    <tr style="margin-top: 8px;" class="row">
+    
+        <td style="width: 25%;" class="col"><select class="form-control" placeholder="State" >
+            <option>Select State</option>
+            <option *ngFor="let State of StateBind" value="{{State.stD_ID}}">{{State.stD_NAME}}</option>
+          </select></td>
+        <td style="width: 25%;" class="col">
+
+            <select class="form-control" placeholder="Distric" >
+                <option>Select Distric</option>
+                <option *ngFor="let Distric of DistricBind" value="{{Distric.dsT_Id}}">{{Distric.dsT_DISTICT}}</option>
+              </select>
+        </td>
+    </tr>
+
+    <tr style="margin-top: 8px;" class="row">
+    
+        <td style="width: 25%;" class="col">
+            <select class="form-control" >
+                <option>Select Category</option>
+                <option *ngFor="let Categorie of CategorieBind" value="{{Categorie.ctg}}">{{Categorie.ctG_NAME}} </option>
+              </select></td>
+        <td style="width: 25%;" class="col">
+            <select class="form-control" >
+                <option>Select StudentClass</option>
+                <option *ngFor="let StudentClass of StudentClassBind" value="{{StudentClass.stc}}">{{StudentClass.stC_NAME}} </option>
+              </select>
+        </td>
+    </tr>
+
+    <tr style="margin-top: 8px;" class="row">
+    
+        <td style="width: 25%;" class="col"><input type="text" class="form-control" placeholder="D.O.J"></td>
+        <td style="width: 25%;" class="col"><input type="text" class="form-control" placeholder="Teacher Name"></td>
+    </tr>
+    <tr style="margin-top: 8px;" class="row">
+    
+        <td style="width: 25%;" class="col"><table style="width:100%;margin-top: 10px;" ><tr><td style="width:50%"><input type="radio"  value="male" name="gender" ngModel> Male</td><td style="width:50%"><input type="radio" value="Female" name="gender" ngModel> Female</td></tr></table></td>
+        <td style="width: 25%;" class="col"><input type="text" class="form-control" placeholder="Teacher Name"></td>
+    </tr>
+
+    <tr style="margin-top: 8px;" class="row">
+    
+        <td style="width: 50%;" class="col"> <input type="text" class="form-control" id="inputAddress1" placeholder="Permanent Address"></td>
+        
+    </tr>
+    <tr style="margin-top: 8px;" class="row">
+        <td style="width: 50%;" class="col"> <input type="text" class="form-control" id="inputAddress2" placeholder="Temporary Address "></td>
+        </tr>
+
+    </table>
+    </td>
+
+    <td style="width: 35%;">
+        <table style="width:100%">
+            <tr><td style="width: 100%; text-align: center;font-size: x-large;">Photo</td></tr>
+        <tr><td style="text-align: center"><img [src]="urlPhoto" alt="" width="150" height="150"></td></tr>
+    <tr><td style="text-align: right"><input type="file" (change)="selectfile($event)"></td></tr>
+    <tr><td style="width: 100%; text-align: center;font-size: x-large;">Signature</td></tr>
+    <tr><td style="text-align: center"><img [src]="urlSign" alt="" width="180" height="50"></td></tr>
+    <tr><td style="text-align: right"><input type="file" (change)="selectSign($event)"></td></tr>
+    </table>
+    </td>
+</tr>
+
+</table>
+<!-- <table style="width:100%"><tr>
+    <
+    <td><button type="button" >Reset</button></td>
+</tr></table> -->
+<div class="forFieldset" style="text-align: center; vertical-align: central; background-color:silver; height: 35px">
+    <input  type="button" style="margin-top: 4px; margin-right: 5px;" value="Submit" id="BtnSalaryDataPrevious" />
+    <input  type="button" style="margin-top: 5px;" value="Reset" id="BtnSaveSalaryData" />
+</div>
+
+
+
+
+
+
+
