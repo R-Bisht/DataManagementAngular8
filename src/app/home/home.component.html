@@ -95,13 +95,13 @@
       
         
     </span>
-   <span style="width: 250px;"><h4 *ngIf="userDetails">  {{userDetails.FullName}}</h4></span>
+   <span style="width: 250px;"><h4 *ngIf="userDetails">  {{userDetails.fullName}}</h4></span>
     <span style="font-size:30px; width:40px">
-      <i class="fa fa-facebook-square" aria-hidden="true"></i>
+      <a href="https://www.facebook.com/"> <i class="fa fa-facebook-square" aria-hidden="true"></i></a>
       </span>
-      <span style="font-size: 30px;width: 40px"> <i class="fa fa-linkedin" aria-hidden="true"></i></span>
-      <span style="font-size: 30px; width: 40px"><i class="fa fa-twitter" aria-hidden="true"></i></span> 
-      <span style="font-size: 30px; width: 40px"><i class="fa fa-whatsapp" aria-hidden="true"></i></span> 
+      <span style="font-size: 30px;width: 40px"><a href="https://www.linkedin.com/"><i class="fa fa-linkedin" aria-hidden="true" ></i></a></span>
+      <span style="font-size: 30px; width: 40px"><a href="http://twitter.com/"><i class="fa fa-twitter" aria-hidden="true"></i></a></span> 
+      <span style="font-size: 30px; width: 40px"><a href="http://whatsapp.com/"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></span> 
       <span style="font-size: 30px; width: 40px"><i class="fa fa-commenting-o" aria-hidden="true"></i></span>
       <span style="font-size: 30px; width: 40px"><i class="fa fa-user" aria-hidden="true"></i></span>
     
@@ -116,12 +116,16 @@
         <!-- <a mat-list-item routerLink='/addstudent'>First Component</a>
         <a mat-list-item routerLink='/addrole'>Second Component</a> -->
         <!-- <a mat-list-item routerLink='first'>First Component</a> -->
-        <a mat-list-item routerLink='AddStudent'> Add Student</a>
-        <a mat-list-item routerLink='AddRole'>Role</a>
+        <a mat-list-item routerLink='AddStudent' *ngIf="userDetails.userRoleID==5" > Add Student</a>
+        <a mat-list-item routerLink='StudentDetail'>Student Detail</a>
+        <a mat-list-item >Student Calender</a>
+        <a mat-list-item >Apply Leave</a>
         <a mat-list-item routerLink='Contacts'>Teacher</a>
+        <a mat-list-item routerLink='Contacts' *ngIf="userDetails.userRoleID==5">Add Teacher</a>
         <a mat-list-item routerLink='Create-contact'> Create Contact </a>
-        <a mat-list-item routerLink='Activities'> Activities </a>
-        <a mat-list-item routerLink='Create-activity'> Create Activity </a>
+        <a mat-list-item routerLink='Activities' *ngIf="userDetails.userRoleID==5" > Activities </a>
+        <a mat-list-item routerLink='Create-activity' *ngIf="userDetails.userRoleID==5" > Create Activity </a>
+        <a mat-list-item routerLink='Message'>Message</a>
          <!-- <a mat-list-item (click)="drawer.toggle()" href="" mat-list-item>Close</a>  -->
       
       </mat-nav-list>

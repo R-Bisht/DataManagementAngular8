@@ -22,6 +22,8 @@ export class HomeComponent implements OnInit {
   
 
   userDetails;
+  userAuth;
+  userRole;
   constructor(private service:UserService,private router:Router) { }
 
   ngOnInit(): void {
@@ -30,6 +32,7 @@ export class HomeComponent implements OnInit {
     this.service.getUserProfile().subscribe(
       res => {
         this.userDetails = res;
+     //   localStorage.setItem('AuthUser',);
       },
       err => {
         console.log(err);

@@ -28,4 +28,10 @@ GetStudentClass()
 {
   return this.http.get(this.BaseURI+'/DropDown/StudentClass');
 }
+ApplicationRole()
+{
+  return this.http.get(this.BaseURI+'/DropDown/ApplicationRole');
+}
+
+
 }

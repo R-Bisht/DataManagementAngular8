@@ -31,6 +31,9 @@ import { AddstudentFormComponent } from './StudentRole/addstudent-form/addstuden
 import { PaymentDetailsComponent } from './payment-details/payment-details.component';
 import { AddRoleComponent } from './Role/add-role/add-role.component';
 import { HomeLayoutComponent } from './home-layout/home-layout.component';
+import { StudentDetailComponent } from './StudentRole/student-detail/student-detail.component';
+import { OTPVerifyComponent } from './user/otpverify/otpverify.component';
+import { CreatePasswordComponent } from './user/create-password/create-password.component';
 
 
 
@@ -56,6 +59,9 @@ import { HomeLayoutComponent } from './home-layout/home-layout.component';
     PaymentDetailsComponent,
     AddRoleComponent,
     HomeLayoutComponent,
+    StudentDetailComponent,
+    OTPVerifyComponent,
+    CreatePasswordComponent,
 
     
   ],

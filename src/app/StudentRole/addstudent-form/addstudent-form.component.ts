@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { DropDownService } from 'src/app/shared/drop-down.service';
+import{AddStudentService}from './../../shared/add-student.service';
+import {ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -17,21 +19,42 @@ export class AddstudentFormComponent implements OnInit {
   DistricBind;
   CategorieBind;
   StudentClassBind;
+  ApplicationRole;
 
-  constructor(private Service:DropDownService ) { }
+  constructor(private Service:DropDownService, public service: AddStudentService, private toastr:ToastrService ) { }
 
   ngOnInit(): void {
 
-  this.BindDistric();
+ 
   this.BindState(); 
   this.BindCategorie();
   this.BindStudentClass();
+  this.onRoleChange();
   
    
 
 
   }
 
+  onRoleChange()
+  {
+
+    this.Service.ApplicationRole().subscribe(
+
+      data=>{
+        this.ApplicationRole=data;
+      },
+      err=>{
+        console.log(err);
+      }
+    )
+  }
+
+  onStateChange(e)
+  {
+    this.BindDistric(e.target.value);
+   
+  }
 
   BindStudentClass()
   {
@@ -63,9 +86,9 @@ this.CategorieBind=data;
 
   }
 
-  BindDistric()
+  BindDistric(StateId)
   {
-    this.Service.GetDistricName(1).subscribe(
+    this.Service.GetDistricName(StateId).subscribe(
 
 dataD=>{
   this.DistricBind=dataD;
@@ -114,6 +137,40 @@ selectSign(event){
   }
 
 }
+AddStudentDetail(){
+
+  this.service.AddStudentData().subscribe(
+    (res: any) => {
+      if (res>=1) {
+        this.service.AddStudentModule.reset();
+     this.toastr.success('Add New Data', 'Student Save successful.');
+      } 
+      if(res==0)
+      {
+        this.toastr.error('already taken','Save failed.');
+
+      }
+      else {
+        res.errors.forEach(element => {
+          switch (element.code) {
+            case 'DuplicateUserName':
+             this.toastr.error('already taken','Save failed.');
+              break;
+
+            default:
+          this.toastr.error(element.description,'Save failed.');
+              break;
+          }
+        });
+      }
+    },
+    err => {
+      console.log(err);
+    }
+  );
+}
+
+
 
 
 

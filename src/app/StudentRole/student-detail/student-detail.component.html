@@ -1,0 +1,74 @@
+<div class="forFieldset" style="text-align: center; vertical-align: central; background-color:silver; height: 35px">
+    <h3 style="font-size: 25px;">Student Details</h3>
+    </div>
+    <style>
+        table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+    </style>
+<table style="width:100%">
+    <tr>
+      <th style="width: 6.25%;">Eroll No</th>
+        <th style="width: 6.25%;">First Name</th>
+        <th style="width: 6.25%;">Last Name</th>
+        <th style="width: 6.25%;">Father Name</th>
+        <th style="width: 6.25%;">Mother Name</th>
+        <th style="width: 6.25%;">Mobile Number</th>
+        <th style="width: 6.25%;">Email Id</th>
+        <th style="width: 6.25%;">Aadhar Number</th>
+        <th style="width: 6.25%;">DOB</th>
+        <th style="width: 6.25%;">State</th>
+        <th style="width: 6.25%;">Distric</th>
+        <th style="width: 6.25%;">Catergory</th>
+        <th style="width: 6.25%;">Class</th>
+        <th style="width: 6.25%;">DOJ</th>
+        <th style="width: 6.25%;">Teacher Name</th>
+        <th style="width: 6.25%;">Gender</th>
+        <th style="width: 6.25%;">Address</th>
+        <th *ngIf="CheckRole!=4" style="width: 6.25%;">Edit</th>
+        <th *ngIf="CheckRole!=4"
+         style="width: 6.25%;">Delete</th>
+    </tr>
+
+<tr *ngFor="let Detail of StudentList">
+  <td>{{Detail.studentId}}</td>
+    <td>{{Detail.studentFirst}}</td>
+    <td>{{Detail.studentLast}}</td>
+    <td>{{Detail.studentFatherName}}</td>
+    <td>{{Detail.studentMotherName}}</td>
+    <td>{{Detail.studentMobileNo}}</td>
+    <td>{{Detail.studentEmail}}</td>
+    
+    <td>{{Detail.studentAadharNo}}</td>
+    <td>{{Detail.studentDOB}}</td>
+    <td>{{Detail.studentState}}</td>
+    <td>{{Detail.studentDistrict}}</td>
+    <td>{{Detail.studentCatergory}}</td>
+    <td>{{Detail.studentClass}}</td>
+    <td>{{Detail.studentDOJ}}</td>
+    <td>{{Detail.studentTeacher}}</td>
+    
+    <td>{{Detail.studentGender}}</td>
+    <td>{{Detail.studentAddress}}</td>
+    
+    <td *ngIf="CheckRole!=4"> <div (click)="EditStudentDetail(Detail.studentId)" >
+      <i style="text-align:center;cursor:pointer" class="fa fa-edit"></i>
+</div></td>
+    <td *ngIf="CheckRole!=4"><div (click)="DeleteStudentDetail(Detail.studentId)">
+      <i style="text-align:center;cursor:pointer" class="fa fa-trash"></i>
+</div></td>
+    
+</tr>
+</table>

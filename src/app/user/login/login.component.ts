@@ -20,9 +20,13 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
-    if (localStorage.getItem('token')!=null)
+    if (localStorage.getItem('token')!=null && localStorage.getItem('userRole')=='5')
     {
-      this.router.navigate(['Main/AddStudent']);
+      this.router.navigate(['Admin/StudentDetail']);
+    }
+    else if (localStorage.getItem('token')!=null && localStorage.getItem('userRole')=='4')
+    {
+      this.router.navigate(['Student/StudentDetail']);
     }
     else{
       this.router.navigate(['user/login']);
@@ -32,7 +36,19 @@ export class LoginComponent implements OnInit {
     this.service.login(form.value).subscribe(
       (res: any) => {
         localStorage.setItem('token', res.token);
-        this.router.navigateByUrl('/Main/AddStudent');
+        localStorage.setItem('userRole', res.userRole);
+        localStorage.setItem('userId', res.userId);
+
+         if (localStorage.getItem('token')!=null && localStorage.getItem('userRole')=='5')
+    {
+      this.router.navigateByUrl('Admin/StudentDetail');
+    }
+    else if (localStorage.getItem('token')!=null && localStorage.getItem('userRole')=='4')
+    {
+      this.router.navigateByUrl('Student/StudentDetail');
+    }
+
+       // this.router.navigateByUrl('/Main/StudentDetail');
       },
       err => {
         if (err.status == 400)
