@@ -1,7 +1,7 @@
 <div class="forFieldset" style="text-align: center; vertical-align: central; background-color:silver; height: 35px">
 <h3 style="font-size: 25px;">Add Student</h3>
 </div>
-<form [formGroup]="service.AddStudentModule" autocomplete="off" (submit)="AddStudentDetail()">
+<form [formGroup]="service.AddStudentModule" autocomplete="off" (submit)="AddStudentDetail()" >
 <table style ="width: 100%; margin-top: 30px; margin-left:15px;">
 <tr>
     <td style="width: 65%;">
@@ -9,9 +9,9 @@
         <div class="form-group required">
     <tr class="row">
     
-        <td style="width: 25%;" class="col"><input type="text"  class="form-control"  placeholder="First Name" formControlName="FirstName">
+        <td style="width: 25%;" class="col"><input type="text"  class="form-control"   placeholder="First Name" formControlName="FirstName" >
             <label class="text-danger" *ngIf="service.AddStudentModule.get('FirstName').touched && service.AddStudentModule.get('FirstName').errors?.required">First Name field is mandatory.</label></td>
-        <td style="width: 25%;" class="col"><input type="text" class="form-control" placeholder="Last Name" formControlName="LastName" >
+        <td style="width: 25%;" class="col"><input type="text" class="form-control" placeholder="Last Name" formControlName="LastName"  >
         <label class="text-danger" *ngIf="service.AddStudentModule.get('LastName').touched && service.AddStudentModule.get('LastName').errors?.required">Last Name field is mandatory.</label>
         </td>
     </tr>
@@ -121,7 +121,7 @@
 <div class="form-group required">
     <tr style="margin-top: 8px;" class="row">
     
-        <td style="width: 25%;" class="col"><table style="width:100%;margin-top: 10px;" ><tr><td style="width:50%"><input type="radio"  value="1"  formControlName="Gender"> Male</td><td style="width:50%"><input type="radio" value="2"  formControlName="Gender"> Female</td></tr></table></td>
+        <td style="width: 25%;" class="col"><table style="width:100%;margin-top: 10px;" ><tr><td style="width:50%"><input type="radio"   value="1"  formControlName="Gender"> Male</td><td style="width:50%"><input type="radio" value="2"  formControlName="Gender"> Female</td></tr></table></td>
         
         <td style="width: 25%;" class="col"><input type="text" class="form-control" placeholder="Principal Name" formControlName="PrincipalName">
             <label class="text-danger" *ngIf="service.AddStudentModule.get('PrincipalName').touched && service.AddStudentModule.get('PrincipalName').errors?.required">Principal Name field is mandatory.</label></td>
@@ -146,6 +146,12 @@
         </td>
         </tr>
     </div>
+
+    <tr style="margin-top: 8px;" class="row">
+    
+        <td style="width: 25%;" class="col"><input type="hidden"  class="form-control"   formControlName="StudentId" value="0"/></td>
+        <td style="width: 25%;" class="col"></td>
+    </tr>
   
     </table>
     </td>
@@ -178,8 +184,11 @@
 
 <div class="forFieldset" style="text-align: center; vertical-align: central; background-color:silver; height: 40px">
    
-        <input type="submit"  [disabled]="!service.AddStudentModule.valid" />
-        <input type="button" value="Reset" id='BtnCancel'  />
+         
+         <input type="submit" class="btn btn-primary" *ngIf="!editdata"  [disabled]="!service.AddStudentModule.valid" />&nbsp;
+        <input type="button" class="btn btn-primary" value="Update" *ngIf="editdata"  [disabled]="!service.AddStudentModule.valid"  (click)="GetUpdateData()"/> &nbsp;
+        <input type="button" class="btn btn-danger"  value="Reset" id='BtnCancel'  />
+      
    
     <!-- <div class="form-group col-md-2 offset-md-2">
         <table>

@@ -1,0 +1,186 @@
+<form [formGroup]="EditStudentList" >
+<table style ="width: 100%; margin-top: 30px; margin-left:15px;">
+<tr>
+    <td style="width: 65%;">
+    <table  style="width:100%">
+        <div class="form-group">
+    <tr class="row">
+    
+        <td style="width: 25%;" class="col">
+            <input type="text"  class="form-control"   placeholder="First Name" formControlName="studentFirst" [(ngModel)]="userobj.studentFirst" >
+            <!-- <label class="text-danger" *ngIf="EditStudentList.get('FirstName').touched && EditStudentList.get('FirstName').errors?.required">First Name field is mandatory.</label> -->
+        </td>
+        <!-- <td style="width: 25%;" class="col"><input type="text" class="form-control" placeholder="Last Name" formControlName="LastName"  >
+        <label class="text-danger" *ngIf="EditStudentList.get('LastName').touched && EditStudentList.get('LastName').errors?.required">Last Name field is mandatory.</label>
+        </td> -->
+    </tr>
+     </div>
+    <!-- <div class="form-group required">
+    <tr style="margin-top: 8px;" class="row">
+    
+        <td style="width: 25%;" class="col"><input type="text"  class="form-control" placeholder="Father Name" formControlName="FatherName">
+            <label class="text-danger" *ngIf="EditStudentList.get('FatherName').touched && EditStudentList.get('FatherName').errors?.required">Father Name field is mandatory.</label></td>
+
+        <td style="width: 25%;" class="col"><input type="text" class="form-control" placeholder="Mother Name" formControlName="MotherName">
+            <label class="text-danger" *ngIf="EditStudentList.get('MotherName').touched && EditStudentList.get('MotherName').errors?.required">Mother Name field is mandatory.</label>
+        </td>
+    </tr>
+    </div> -->
+    <!-- <div class="form-group required">
+    <tr style="margin-top: 8px;" class="row">
+    
+        <td style="width: 25%;" class="col"><input type="text" maxlength="10" class="form-control" placeholder="Phone No" formControlName="PhoneNo">
+            <label class="text-danger" *ngIf="EditStudentList.get('PhoneNo').touched && EditStudentList.get('PhoneNo').errors?.required">Phone No field is mandatory.</label>
+        </td>
+        <td style="width: 25%;" class="col"><input type="text" class="form-control" placeholder="Email Id" formControlName="Email">
+            <label class="text-danger" *ngIf="EditStudentList.get('Email').touched && EditStudentList.get('Email').errors?.email ">Invalid Email Address.</label>
+        </td>
+    </tr>
+    </div>
+    <div class="form-group required">
+        <tr style="margin-top: 8px;" class="row">
+        
+            <td style="width: 25%;" class="col"><select class="form-control" placeholder="Role"  formControlName="ApplicationRole" >
+                <option>Select Role</option>
+                <option *ngFor="let AR of ApplicationRole"  value="{{AR.aR_Id}}">{{AR.aR_ApplicationDiscriminator}}</option>
+              </select>
+              <label class="text-danger" *ngIf="EditStudentList.get('ApplicationRole').touched && EditStudentList.get('ApplicationRole').errors?.required">State field is mandatory.</label>
+            </td>
+            <td style="width: 25%;" class="col"><input type="text" class="form-control" placeholder="User Name" formControlName="UserName">
+                <label class="text-danger" *ngIf="EditStudentList.get('UserName').touched && EditStudentList.get('UserName').errors?.required">Last Name field is mandatory.</label>
+            </td>
+        </tr>
+        </div>
+    <div class="form-group required">
+    <tr style="margin-top: 8px;" class="row">
+    
+        <td style="width: 25%;" class="col"><input type="text"  class="form-control" maxlength="12" placeholder="Aadhar No" formControlName="AadharNo">
+            <label class="text-danger" *ngIf="EditStudentList.get('AadharNo').touched && EditStudentList.get('AadharNo').errors?.required">Aadhar No field is mandatory.</label>
+        </td>
+        <td style="width: 25%;" class="col"><input type="date" class="form-control" placeholder="D.O.B" formControlName="DOB">
+            <label class="text-danger" *ngIf="EditStudentList.get('DOB').touched && EditStudentList.get('DOB').errors?.required">Date of Birth field is mandatory.</label>
+        </td>
+    </tr>
+</div>
+    <div class="form-group required">
+    <tr style="margin-top: 8px;" class="row">
+    
+        <td style="width: 25%;" class="col"><select class="form-control" placeholder="State" (change)="onStateChange($event)" formControlName="State" >
+            <option>Select State</option>
+            <option *ngFor="let State of StateBind"  value="{{State.stD_ID}}">{{State.stD_NAME}}</option>
+          </select>
+          <label class="text-danger" *ngIf="EditStudentList.get('State').touched && EditStudentList.get('State').errors?.required">State field is mandatory.</label>
+        </td>
+        <td style="width: 25%;" class="col">
+            
+            <select class="form-control" formControlName="Distric" >
+                <option>Select Distric</option>
+                <option *ngFor="let Distric of DistricBind" value="{{Distric.dsT_Id}}">{{Distric.dsT_DISTICT}}</option>
+              </select>
+              <label class="text-danger" *ngIf="EditStudentList.get('Distric').touched && EditStudentList.get('Distric').errors?.required">Distric field is mandatory.</label>
+        </td>
+    </tr>
+</div>
+    <div class="form-group required">
+        
+    <tr style="margin-top: 8px;" class="row">
+    
+        <td style="width: 25%;" class="col">
+           
+            <select class="form-control" formControlName="Category">
+                <option>Select Category</option>
+                <option *ngFor="let Categorie of CategorieBind" value="{{Categorie.ctg}}">{{Categorie.ctG_NAME}} </option>
+              </select>
+              <label class="text-danger" *ngIf="EditStudentList.get('Category').touched && EditStudentList.get('Category').errors?.required">Category field is mandatory.</label>
+            </td>
+        <td style="width: 25%;" class="col">
+           
+            <select class="form-control" formControlName="StudentClass" >
+                <option>Select StudentClass</option>
+                <option *ngFor="let StudentClass of StudentClassBind" value="{{StudentClass.stc}}">{{StudentClass.stC_NAME}} </option>
+              </select>
+              <label class="text-danger" *ngIf="EditStudentList.get('StudentClass').touched && EditStudentList.get('StudentClass').errors?.required">Student Class field is mandatory.</label>
+            
+        </td>
+    </tr>
+</div>
+    <div class="form-group required">
+    <tr style="margin-top: 8px;" class="row">
+    
+        <td style="width: 25%;" class="col"><input type="date" class="form-control" placeholder="D.O.J" formControlName="DOJ" >
+            <label class="text-danger" *ngIf="EditStudentList.get('DOJ').touched && EditStudentList.get('DOJ').errors?.required">Date of joining field is mandatory.</label>
+            
+        </td>
+        <td style="width: 25%;" class="col"><input type="text" class="form-control" placeholder="Teacher Name" formControlName="TeacherName">
+            <label class="text-danger" *ngIf="EditStudentList.get('TeacherName').touched && EditStudentList.get('TeacherName').errors?.required">Teacher Name field is mandatory.</label>
+            
+        </td>
+    </tr>
+</div>
+<div class="form-group required">
+    <tr style="margin-top: 8px;" class="row">
+    
+        <td style="width: 25%;" class="col"><table style="width:100%;margin-top: 10px;" ><tr><td style="width:50%"><input type="radio"  value="1"  formControlName="Gender"> Male</td><td style="width:50%"><input type="radio" value="2"  formControlName="Gender"> Female</td></tr></table></td>
+        
+        <td style="width: 25%;" class="col"><input type="text" class="form-control" placeholder="Principal Name" formControlName="PrincipalName">
+            <label class="text-danger" *ngIf="EditStudentList.get('PrincipalName').touched && EditStudentList.get('PrincipalName').errors?.required">Principal Name field is mandatory.</label></td>
+      
+    </tr>
+</div>
+    <div class="form-group required">
+    <tr style="margin-top: 8px;" class="row">
+    
+        <td style="width: 50%;" class="col"><input type="text" class="form-control"  placeholder="Permanent Address" formControlName="PermanentAddress">
+            <label class="text-danger" *ngIf="EditStudentList.get('PermanentAddress').touched && EditStudentList.get('PermanentAddress').errors?.required">Permanent Address field is mandatory.</label>
+            
+        </td>
+        
+    </tr>
+</div>
+<div class="form-group required">
+    <tr style="margin-top: 8px;" class="row">
+        <td style="width: 50%;" class="col"><input type="text" class="form-control"  placeholder="Temporary Address" formControlName="TemporaryAddress">
+            <label class="text-danger" *ngIf="EditStudentList.get('TemporaryAddress').touched && EditStudentList.get('TemporaryAddress').errors?.required">Temporary Address field is mandatory.</label>
+           
+        </td>
+        </tr>
+    </div> -->
+  
+    </table>
+    </td>
+
+    <!-- <td style="width: 35%;">
+        <table style="width:100%">
+            <tr><td style="width: 100%; text-align: center;font-size: x-large;">Photo</td></tr>
+        <tr><td style="text-align: center"><img [src]="urlPhoto" alt="" width="150" height="150"></td></tr>
+    <tr>
+        <div class="form-group required">
+        <td style="text-align: right"><input type="file" (change)="selectfile($event)"  formControlName="PhotoName"></td>
+    </div>
+    </tr>
+    <tr><td style="width: 100%; text-align: center;font-size: x-large;">Signature</td></tr>
+    <tr><td style="text-align: center"><img [src]="urlSign" alt="" width="180" height="50"></td></tr>
+    <tr><div class="form-group required">
+        <td style="text-align: right"><input type="file" (change)="selectSign($event)" formControlName="SignatureName"></td>
+    </div>
+    </tr>
+    </table>
+    </td> -->
+</tr>
+
+</table>
+
+<!-- <table style="width:100%"><tr>
+    <
+    <td><button type="button" >Reset</button></td>
+</tr></table> -->
+
+<!-- <div class="forFieldset" style="text-align: center; vertical-align: central; background-color:silver; height: 40px">
+   
+        <input type="submit"  [disabled]="!EditStudentList.valid" />
+        <input type="button" value="Reset" id='BtnCancel'  />
+   
+    
+
+</div> -->
+</form>

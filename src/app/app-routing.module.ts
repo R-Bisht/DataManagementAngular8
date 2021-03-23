@@ -11,6 +11,9 @@ import { HomeLayoutComponent } from './home-layout/home-layout.component';
 import { StudentDetailComponent } from './StudentRole/student-detail/student-detail.component';
 import { OTPVerifyComponent } from './user/otpverify/otpverify.component';
 import { CreatePasswordComponent } from './user/create-password/create-password.component';
+import { AddTeacherComponent } from './Teacher/add-teacher/add-teacher.component';
+import { TeacherDetailComponent } from './Teacher/teacher-detail/teacher-detail.component';
+import { EditStudentComponent } from './UpdateStudent/edit-student/edit-student.component';
 
 
 const routes: Routes = [
@@ -37,13 +40,17 @@ children:[
  { path: 'Admin', component: HomeLayoutComponent,canActivate:[AuthGuard],
   children: [
    { path: '', redirectTo: 'StudentDetail', pathMatch: 'full' },
-    { path: 'AddStudent',  component: AddstudentFormComponent },
+     { path: 'AddStudent/:id',  component: AddstudentFormComponent },
+  //  { path: 'EditStudent/:id',  component:EditStudentComponent },
    { path: 'StudentDetail', component: StudentDetailComponent },
+   { path: 'AddTeacher', component:AddTeacherComponent  },
+   { path: 'TeacherDetail', component: TeacherDetailComponent },
   ]
  },
 
  { path: 'Student', component: HomeLayoutComponent,canActivate:[AuthGuard],
  children: [
+  // { path: 'AddStudent',  component: AddstudentFormComponent },
   { path: '', redirectTo: 'StudentDetail', pathMatch: 'full' },
   { path: 'StudentDetail', component: StudentDetailComponent },
  ]

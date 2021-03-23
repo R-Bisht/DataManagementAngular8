@@ -34,6 +34,8 @@
     "@syncfusion/ej2-angular-navigations": "^18.2.55",
     "bootstrap": "^4.5.0",
     "font-awesome": "^4.7.0",
+    "ng-multiselect-dropdown": "^0.2.14",
+    "ng-multiselect-dropdown-angular7": "^0.1.5",
     "ngx-angular8-sweetalert2": "^9.8.2",
     "ngx-bootstrap": "^6.1.0",
     "ngx-dropdown": "0.0.22",
@@ -41,8 +43,9 @@
     "ngx-toastr": "^12.1.0",
     "node-forge": "^0.10.0",
     "rxjs": "~6.5.4",
+    "sweetalert": "^2.1.2",
     "sweetalert2": "^10.15.3",
-    "tslib": "^1.10.0",
+    "tslib": "^1.14.1",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {

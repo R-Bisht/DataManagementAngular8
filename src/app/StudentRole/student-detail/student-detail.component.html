@@ -63,8 +63,12 @@ tr:nth-child(even) {
     <td>{{Detail.studentGender}}</td>
     <td>{{Detail.studentAddress}}</td>
     
-    <td *ngIf="CheckRole!=4"> <div (click)="EditStudentDetail(Detail.studentId)" >
-      <i style="text-align:center;cursor:pointer" class="fa fa-edit"></i>
+    <!-- <td *ngIf="CheckRole!=4"> <div>
+      <a routerLink="/Admin/EditStudent/{{Detail.studentId}}">
+      <i style="text-align:center;cursor:pointer" class="fa fa-edit"></i></a></div>
+</td> -->
+<td *ngIf="CheckRole!=4"><div (click)="EditStudentDetail(Detail.studentId)">
+  <i style="text-align:center;cursor:pointer" class="fa fa-edit"></i>
 </div></td>
     <td *ngIf="CheckRole!=4"><div (click)="DeleteStudentDetail(Detail.studentId)">
       <i style="text-align:center;cursor:pointer" class="fa fa-trash"></i>

@@ -34,6 +34,11 @@ import { HomeLayoutComponent } from './home-layout/home-layout.component';
 import { StudentDetailComponent } from './StudentRole/student-detail/student-detail.component';
 import { OTPVerifyComponent } from './user/otpverify/otpverify.component';
 import { CreatePasswordComponent } from './user/create-password/create-password.component';
+import { AddTeacherComponent } from './Teacher/add-teacher/add-teacher.component';
+import { TeacherDetailComponent } from './Teacher/teacher-detail/teacher-detail.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { EditStudentComponent } from './UpdateStudent/edit-student/edit-student.component';
+
 
 
 
@@ -62,12 +67,16 @@ import { CreatePasswordComponent } from './user/create-password/create-password.
     StudentDetailComponent,
     OTPVerifyComponent,
     CreatePasswordComponent,
+    AddTeacherComponent,
+    TeacherDetailComponent,
+    EditStudentComponent,
+
 
     
   ],
   imports: [
     
-
+    NgMultiSelectDropDownModule.forRoot(),
 
     BrowserModule,
     AppRoutingModule,

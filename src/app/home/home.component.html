@@ -116,12 +116,13 @@
         <!-- <a mat-list-item routerLink='/addstudent'>First Component</a>
         <a mat-list-item routerLink='/addrole'>Second Component</a> -->
         <!-- <a mat-list-item routerLink='first'>First Component</a> -->
-        <a mat-list-item routerLink='AddStudent' *ngIf="userDetails.userRoleID==5" > Add Student</a>
+        <a mat-list-item routerLink='AddStudent/0' *ngIf="userDetails.userRoleID==5" > Add Student</a>
         <a mat-list-item routerLink='StudentDetail'>Student Detail</a>
         <a mat-list-item >Student Calender</a>
         <a mat-list-item >Apply Leave</a>
-        <a mat-list-item routerLink='Contacts'>Teacher</a>
-        <a mat-list-item routerLink='Contacts' *ngIf="userDetails.userRoleID==5">Add Teacher</a>
+        
+        <a mat-list-item routerLink='AddTeacher' *ngIf="userDetails.userRoleID==5">Add Teacher</a>
+        <a mat-list-item routerLink='TeacherDetail'>Teacher Detail</a>
         <a mat-list-item routerLink='Create-contact'> Create Contact </a>
         <a mat-list-item routerLink='Activities' *ngIf="userDetails.userRoleID==5" > Activities </a>
         <a mat-list-item routerLink='Create-activity' *ngIf="userDetails.userRoleID==5" > Create Activity </a>

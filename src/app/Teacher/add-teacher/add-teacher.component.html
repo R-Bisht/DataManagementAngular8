@@ -1,0 +1,68 @@
+<div class="forFieldset" style="text-align: center; vertical-align: central; background-color:silver; height: 35px">
+    <h3 style="font-size: 25px;">Add Teacher</h3>
+    </div>
+    <form [formGroup]="service.AddTeacherModule" autocomplete="off" (submit)="AddTeacherDetail()">
+    <table style ="width: 100%; margin-top: 30px; margin-left:15px;">
+    <tr>
+        <td style="width: 65%;">
+        <table  style="width:100%">
+            <div class="form-group required">
+        <tr class="row">
+        
+            <td style="width: 25%;" class="col"><input type="text"  class="form-control"  placeholder="First Name" formControlName="FirstName">
+                <label class="text-danger" *ngIf="service.AddTeacherModule.get('FirstName').touched && service.AddTeacherModule.get('FirstName').errors?.required">First Name field is mandatory.</label></td>
+            <td style="width: 25%;" class="col"><input type="text" class="form-control" placeholder="Last Name" formControlName="LastName" >
+            <label class="text-danger" *ngIf="service.AddTeacherModule.get('LastName').touched && service.AddTeacherModule.get('LastName').errors?.required">Last Name field is mandatory.</label>
+            </td>
+        </tr>
+         </div>
+         <div class="form-group required">
+            <tr class="row">
+            
+                <td style="width: 25%;" class="col"><input type="text" maxlength="10" class="form-control" placeholder="Phone No" formControlName="PhoneNo">
+                    <label class="text-danger" *ngIf="service.AddTeacherModule.get('PhoneNo').touched && service.AddTeacherModule.get('PhoneNo').errors?.required">Phone No field is mandatory.</label>
+                </td>
+                <td style="width: 25%;" class="col"><input type="text" class="form-control" placeholder="Email Id" formControlName="Email">
+                    <label class="text-danger" *ngIf="service.AddTeacherModule.get('Email').touched && service.AddTeacherModule.get('Email').errors?.email ">Invalid Email Address.</label>
+                </td>
+            </tr>
+             </div>
+             <div class="form-group required">
+                <tr style="margin-top: 8px;" class="row">
+                
+                    <td style="width: 25%;" class="col"><select class="form-control" placeholder="Assign Class"  formControlName="" >
+                        <ng-multiselect-dropdown
+                        [placeholder]="'custom placeholder'"
+
+  
+  
+                        ></ng-multiselect-dropdown>
+                        <!-- <option *ngFor=""  value="{{}}">{{}}</option> -->
+                      </select>
+                      <!-- <label class="text-danger" *ngIf="service.AddStudentModule.get('ApplicationRole').touched && service.AddStudentModule.get('ApplicationRole').errors?.required">State field is mandatory.</label> -->
+                    </td>
+                    <td style="width: 25%;" class="col"><input type="text" class="form-control" placeholder="Class Teacher" formControlName="ClassTeacher">
+                        <!-- <label class="text-danger" *ngIf="service.AddStudentModule.get('UserName').touched && service.AddStudentModule.get('UserName').errors?.required">Last Name field is mandatory.</label> -->
+                    </td>
+                </tr>
+                </div>
+        </table>
+        </td>
+
+        
+    <td style="width: 35%;">
+        <table style="width:100%">
+            <tr><td style="width: 100%; text-align: center;font-size: x-large;">Photo</td></tr>
+        <tr><td style="text-align: center"><img [src]="urlPhoto" alt="" width="150" height="150"></td></tr>
+    <tr>
+        <div class="form-group required">
+        <td style="text-align: right"><input type="file" (change)="selectfileTeacher($event)"  formControlName="PhotoName"></td>
+    </div>
+    </tr>
+    
+    </table>
+    </td>
+        </tr>
+
+        </table>
+</form>
